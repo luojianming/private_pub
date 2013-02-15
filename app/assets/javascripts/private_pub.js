@@ -24,6 +24,7 @@ function buildPrivatePub(doc) {
 
     connectToFaye: function() {
       self.fayeClient = new Faye.Client(self.subscriptions.server);
+      self.fayeHeader('Access-Control-Allow-Origin', '*');
       self.fayeClient.addExtension(self.fayeExtension);
       for (var i=0; i < self.fayeCallbacks.length; i++) {
         self.fayeCallbacks[i](self.fayeClient);
